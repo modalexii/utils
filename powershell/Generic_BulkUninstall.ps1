@@ -1,4 +1,8 @@
-# The function below expects to be passed an array, from which it reads a human-meaningful program name to display to the user (and capture in the transcript), the binary used to uninstall, and the parameters to pass. I then iterate through a multidimensional array of software to remove, calling Uninstall() on each element:
+# The function below expects to be passed an array, from which it reads a
+# human-meaningful program name to display to the user (and capture in the
+# transcript), the binary used to uninstall, and the parameters to pass. 
+# It then iterates through a multidimensional array of software to remove,
+# calling Uninstall() on each element
 
 Function Uninstall($AppArray) {
     $Name = $AppArray[0]
