@@ -1,5 +1,5 @@
 # base-64 encode anything (images, binaries, etc) so it can be stored in a text document
-# run as b64encode-py <infile.whatever> <outfile.txt>
+# run as b64encode.py <infile.whatever> <outfile.txt>
 
 import base64
 import sys
