@@ -5,6 +5,7 @@
 #
 #
 # This was practically my first shell script.
+# I had been using Linux for like 2 weeks.
 # It should not be used for anything, ever, but is here because it makes me laugh.
 # It will "probably" actually work in BT4 beta
 #
