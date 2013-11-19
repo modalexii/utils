@@ -14,6 +14,6 @@ Advanced:
 
 If creating your own short cut, be sure to run the power.ps1 file as follows:
 
-powershell.exe -sta -windowstyle hidden -file "power.ps1"
+Powershell.exe -Sta -WindowTtyle Hidden -ExecutionPolicy Unrestricted -File "power.ps1"
 
-("-sta" is critical)
+("-Sta" is critical)
