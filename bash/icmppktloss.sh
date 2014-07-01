@@ -5,9 +5,11 @@ helptext() {
 Usage: icmppktloss \<remote_host\> \<interval\>
 
 This script sends three paralell ICMP ECHO requests to \`remote_host\`
-every \`interval\` seconds and reports the packet loss.
+every \`interval\` seconds and reports the packet loss. Edit the \`ping\`
+command herein as needed.
 
-Depends: bash >= v4, cut, date, echo, ping, sleep
+Depends: bash, cut, date, echo, ping, sleep
+
 
 e.g., icmppktloss 8.8.8.8 4
 e.g., icmppktloss example.com .5
