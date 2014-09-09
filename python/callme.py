@@ -7,7 +7,7 @@ import urllib2,urllib,sys,time
 def usage():
 	print '''
 Usage: callme.py <number> <delay>
-E.G.:  callme.py 3015551234 20
+E.G.:  callme.py 3015551234 90
 
 Number: A phone number, no punctuation or spaces
  Delay: How many seconds between call attempts (recommend 70 seconds or more
