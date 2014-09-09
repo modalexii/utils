@@ -6,6 +6,8 @@ import urllib2,urllib,sys,time
 
 def usage():
 	print '''
+Dials a phone number at specified intervals forever (until ctrl+c).
+
 Usage: callme.py <number> <delay>
 E.G.:  callme.py 3015551234 90
 
