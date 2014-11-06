@@ -33,7 +33,7 @@ $ScriptPath = Split-Path -Parent $MyInvocation.MyCommand.Definition
 
 Add-Type -AssemblyName System.Windows.Forms 
 $Form = New-Object system.Windows.Forms.Form
-$Form.Text = $LoaderTitle
+$Form.Text = "Hang in there baby!"
 $Form.BackColor = "White"
 $Form.MinimizeBox = $False
 $Form.MaximizeBox = $False 
@@ -58,7 +58,9 @@ $Form.Controls.Add($PictureBox)
 
 # Text
 $Label = New-Object System.Windows.Forms.Label
-$Label.Text = $LoaderMessage
+$Label.Text = "
+            Please stand by while we do some things...
+"
 $Label.AutoSize = $True
 $Form.Controls.Add($Label)
 
