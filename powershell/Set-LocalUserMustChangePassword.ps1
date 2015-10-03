@@ -1,5 +1,5 @@
-$DOEHRSAdminUserWMI = Get-WmiObject -Class Win32_UserAccount -Filter "name='SomeLocalUserName'"
-$DOEHRSAdminUserWMI.PasswordExpires = $True
-$DOEHRSAdminUserWMI.Put()
-$DOEHRSAdminNTU.PasswordExpired = 1
-$DOEHRSAdminNTU.SetInfo()
+$UserWMI = Get-WmiObject -Class Win32_UserAccount -Filter "name='SomeLocalUserName'"
+$UserWMI.PasswordExpires = $True
+$UserWMI.Put()
+$NTU.PasswordExpired = 1
+$NTU.SetInfo()
