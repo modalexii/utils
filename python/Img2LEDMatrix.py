@@ -1,6 +1,22 @@
 class InvalidColorFormat(Exception):
     pass
 
+def rgb888(pixel):
+
+	r = "{:02x}".format(pixel[0])
+	b = "{:02x}".format(pixel[1])
+	g = "{:02x}".format(pixel[2])
+
+	return "0x{}{}{}".format(r,g,b)
+
+def rgb565(pixel):
+
+	r = "{:05b}".format(31 * pixel[0] / 255)
+	b = "{:05b}".format(31 * pixel[2] / 255)
+	g = "{:06b}".format(63 * pixel[1] / 255)
+
+	return int("0b{}{}{}".format(r,g,b), 2)
+
 def makeLiteralCArray(pixel_matrix):
 
 	'''
@@ -21,11 +37,11 @@ def makeLiteralCArray(pixel_matrix):
 
 	return literal_c_array
 
-def makePixelMatrix(image_file, color_format = "grb"):
+def makePixelMatrix(image_file, color_format = "rgb565"):
 
 	'''
 	Given the path to an image, return a list of scan lines with each pixel
-	in the specified format ("rgb" or "grb")
+	in the specified format 
 	'''
 
 	from PIL import Image
@@ -35,17 +51,14 @@ def makePixelMatrix(image_file, color_format = "grb"):
 	raw_pixel_array = numpy.array(image)
 	width = image.size[0]
 
-	# make each a 24-bit GRB literal
+	# make each a literal per color_format
 	grb24_pixel_array = []
 	for scanline in raw_pixel_array:
 		for pixel in scanline:
-			g = "{:02x}".format(pixel[0])
-			b = "{:02x}".format(pixel[1])
-			r = "{:02x}".format(pixel[2])
-			if color_format == "grb":
-				grb24_pixel_array.append("0x{}{}{}".format(g,r,b))
-			elif color_format == "rgb":
-				grb24_pixel_array.append("0x{}{}{}".format(r,g,b))
+			if color_format == "rgb565":
+				grb24_pixel_array.append(rgb565(pixel))
+			elif color_format == "rgb888":
+				grb24_pixel_array.append(rgb888(pixel))
 			else:
 				raise InvalidColorFormat(
 					"Invalid color_format \"{}\" passed to makePixelMatrix".format(color_format)
