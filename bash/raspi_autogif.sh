@@ -28,11 +28,12 @@ echo "/usr/bin/gifview --animate --geometry 2000x1000 --no-interactive /home/pi/
 echo "Updating .bash_profile"
 echo "# start the x server if we are in TTY1" >> ~/.bash_profile
 echo "if [ $(ps ax | grep $$ | grep -v grep | awk '{print $2}') == 'tty1' ]" >> ~/.bash_profile
-echo "    then exec startx" >> ~/.bash_profile
+echo "    then exec startx -- -nocursor" >> ~/.bash_profile
 echo "fi" >> ~/.bash_profile
 
-#echo "Disabling networking - you will need to start the service after the boot"
-#update-rc.d networking disable
+echo "Removing screen blank timeout"
+sed -i 's/^BLANK_TIME=[0-9]*/BLANK_TIME=0/' /etc/kbd/config
+sed -i 's/^POWERDOWN_TIME=[0-9]*/POWERDOWN_TIME=0/' /etc/kbd/config
 
 echo "Rebooting in 10 seconds - ^c now or forever hold your peace"
 sleep 10
